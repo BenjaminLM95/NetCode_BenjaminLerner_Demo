@@ -1,7 +1,8 @@
 using TMPro;
+using Unity.Netcode;
 using UnityEngine;
 
-public class PushPullSystem : MonoBehaviour
+public class PushPullSystem : NetworkBehaviour
 {
     [SerializeField] private GameObject movableObj = null;
 
@@ -34,6 +35,7 @@ public class PushPullSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!IsOwner) return;
         // Draw the ray in the Scene view for debugging
         Debug.DrawRay(transform.position, transform.forward * rayDistance, Color.red);
 
@@ -69,7 +71,7 @@ public class PushPullSystem : MonoBehaviour
                     //movableObj.transform.SetParent(transform);
                     // TODO: Make the object child of the player from the cube object
 
-                    movableObj.GetComponent<Parenting>().BecomeAChild(transform); 
+                    movableObj.GetComponent<Parenting>().BecomeAChildServerRpc(NetworkObject); 
 
                     isMoving = true;
                 }
@@ -78,7 +80,7 @@ public class PushPullSystem : MonoBehaviour
                     //movableObj.transform.SetParent(null);
                     // TODO: Make the object free from the player from the cube object
 
-                    movableObj.GetComponent<Parenting>().BecomeIndependient(); 
+                    movableObj.GetComponent<Parenting>().BecomeIndependientServerRpc(); 
                     isMoving = false; 
                 }
             }
@@ -97,6 +99,8 @@ public class PushPullSystem : MonoBehaviour
         }
 
     }
+
+
 
 
 }

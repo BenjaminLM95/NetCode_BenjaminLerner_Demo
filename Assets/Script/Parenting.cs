@@ -1,26 +1,17 @@
+using Unity.Netcode;
 using UnityEngine;
 
-public class Parenting : MonoBehaviour
+public class Parenting : NetworkBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    
+    [ServerRpc(RequireOwnership = false)]
+    public void BecomeAChildServerRpc(NetworkObjectReference parentObjectRef) 
     {
-        
+        if (parentObjectRef.TryGet(out NetworkObject parentObj)) { transform.SetParent(parentObj.transform); }
     }
-
-    // Update is called once per frame
-    void Update()
+    [ServerRpc(RequireOwnership = false)]
+    public void BecomeIndependientServerRpc() 
     {
-        
-    }
-
-    public void BecomeAChild(Transform _transform) 
-    {
-        this.transform.SetParent(_transform);
-    }
-
-    public void BecomeIndependient() 
-    {
-        this.transform.SetParent(null); 
+        transform.SetParent(null); 
     }
 }

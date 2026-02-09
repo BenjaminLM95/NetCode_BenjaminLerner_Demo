@@ -139,6 +139,10 @@ PrefabInstance:
       propertyPath: InScenePlacedSourceGlobalObjectIdHash
       value: 49164106
       objectReference: {fileID: 0}
+    - target: {fileID: 1181250569597330990, guid: 01709c4b070070b44a2ddc2768c9e23f, type: 3}
+      propertyPath: AuthorityMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2156288762308592900, guid: 01709c4b070070b44a2ddc2768c9e23f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.5718689
@@ -498,6 +502,57 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1201924753 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1966765252891720818, guid: f28d39f379ff4504ca5df8662412a34d, type: 3}
+  m_PrefabInstance: {fileID: 1371742563}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1201924760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1201924753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cb48aa6844360540bd241bff14cc9ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  NetworkTransformExpanded: 1
+  AutoOwnerAuthorityTickOffset: 1
+  PositionInterpolationType: 0
+  RotationInterpolationType: 0
+  ScaleInterpolationType: 0
+  PositionLerpSmoothing: 1
+  PositionMaxInterpolationTime: 0.1
+  RotationLerpSmoothing: 1
+  RotationMaxInterpolationTime: 0.1
+  ScaleLerpSmoothing: 1
+  ScaleMaxInterpolationTime: 0.1
+  AuthorityMode: 0
+  TickSyncChildren: 0
+  UseUnreliableDeltas: 0
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 1
+  SyncScaleY: 1
+  SyncScaleZ: 1
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  UseQuaternionSynchronization: 0
+  UseQuaternionCompression: 0
+  UseHalfFloatPrecision: 0
+  InLocalSpace: 0
+  SwitchTransformSpaceWhenParented: 0
+  Interpolate: 1
+  SlerpPosition: 0
 --- !u!1 &1343199395
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,7 +722,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1966765252891720818, guid: f28d39f379ff4504ca5df8662412a34d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1201924760}
   m_SourcePrefab: {fileID: 100100000, guid: f28d39f379ff4504ca5df8662412a34d, type: 3}
 --- !u!1 &1407695095
 GameObject:
