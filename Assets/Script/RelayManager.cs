@@ -27,13 +27,17 @@ public class RelayManager : MonoBehaviour
     public async void StartRelay() 
     {
         string joinCode = await StartHostWithRelay();
+        joinCodeText.gameObject.SetActive(true); 
         joinCodeText.text = joinCode;
     }
 
     public async void JoinRelay() 
     {
-        await StartClientWithRelay(joinCodeInputField.text); 
+        await StartClientWithRelay(joinCodeInputField.text);
+        joinCodeText.gameObject.SetActive(false);
     }
+
+    
 
     private async Task<string> StartHostWithRelay(int maxConnections = 3) 
     {
@@ -57,13 +61,13 @@ public class RelayManager : MonoBehaviour
 
     private void OnGUI()
     {
-        float w = 200f, h = 40f;
+        float w = 400f, h = 40f;
         float x = 10f, y = 10f;
 
         if (!NetworkManager.Singleton.IsClient && !NetworkManager.Singleton.IsServer)
         {
-            if (GUI.Button(new Rect(x, y, w, h), "Host")) StartRelay();
-            if (GUI.Button(new Rect(x, y + h + 10, w, h), "Client")) JoinRelay();
+            if (GUI.Button(new Rect(x, y, w, h), "Host the game")) StartRelay();
+            if (GUI.Button(new Rect(x, y + h + 10, w, h), "Join to the game")) JoinRelay();          
             if (GUI.Button(new Rect(x, y + 2 * (h + 10), w, h), "Observer")) NetworkManager.Singleton.StartServer();
             
         }
