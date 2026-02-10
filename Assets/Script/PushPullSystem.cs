@@ -36,6 +36,11 @@ public class PushPullSystem : NetworkBehaviour
     void Update()
     {
         if (!IsOwner) return;
+
+        var nm = NetworkManager.Singleton;
+        if (nm == null || !nm.IsListening) return; 
+        
+
         // Draw the ray in the Scene view for debugging
         Debug.DrawRay(transform.position, transform.forward * rayDistance, Color.red);
 
